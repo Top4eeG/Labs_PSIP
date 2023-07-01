@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta CHARSET="UTF-8">
+        <script>
+            function ADate(){
+                let date = new Date();
+                // Получаем месяц и год в виде чисел
+                let month = date.getMonth();
+                let year = date.getFullYear()
+                alert(month +"/"+ year);
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="ADate()">Показать день</button>
+        <br><br>
+        <script>
+            let surname = "Масловский Артём";
+            let output = "";
+            let i=0;
+            do{
+                output += i+1+")" + surname + ";<br>";
+                i++
+            }
+            while ( i < 17)
+            document.write(output);
+        </script>
+        <br><br>
+        <script>
+            // Сформировать массив из 10 целых чисел
+            let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+            array.sort((a,b) => b - a);
+            console.log(array);
+
+            document.write(array);
+        </script>
+
+        <p>a = <input id="a"></p>
+        <p>b = <input id="b"></p>
+        <p>c = <input id="c"></p>
+        <p><button onclick="formula()">Расчёт по формуле</button></p>
+        <br><br>
+        <p id="surname"></p>
+        <p id="hobbie"></p>
+
+        <script>
+            let S1 = "Артём";
+            let S2 = "Спорт, киберспорт";
+
+            var p1 = document.getElementById("surname"); // находим элемент по id
+            p1.innerHTML = S1;
+
+            var p2 = document.getElementById("hobbie"); // находим элемент по id
+            p2.innerHTML = S2;
+
+            document.write("Длина строки S2 = " + S2.length + "<br><br>");
+            
+            p2.innerHTML = S2.replaceAll(" ", "_______________");
+            S1 = "Павел";
+
+        </script>
+
+        <script>
+            var online = navigator.onLine;
+
+            var win = window.open("", "Title", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=300,height=200,top="+(screen.height-300)+",left="+(screen.width-200));
+            win.document.title = "Масловский Артём Викторович"
+            win.document.body.innerHTML = online;
+        </script>
+    </body>
+    <script src="javascript.js"></script>
+</html>

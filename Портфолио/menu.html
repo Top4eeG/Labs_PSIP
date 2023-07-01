@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Портфолио</title>
+        <link rel="stylesheet" type="text/css" href="menu.css">
+          
+    </head>
+<body>
+
+    <h1  class="pouring">Моё резюме</h1>
+    
+    <div style="display: flex; flex-direction: row; ">
+    <div class="scale">
+        <img alt="" class="scale" src="img/cats.jpg" >
+    </div>    
+         <div style="display: flex; flex-direction: column;">
+            <h1 style="font-size: 26px; font-family: Times New Roman; display: flex; flex-direction: column; "><i>Привет!</i></h1>
+            <p style="font-size: 14px; font-family: Times New Roman; text-align: justify; display: flex;"> <i> Меня зовут Артём. Мне 17 лет, учусь я на 3 курсе, в группе ПЗТ-34, Гродненского государственного политехнического колледжа. Родился в агро-городке Пархимовцы. В свободное время я гуляю и тренируюсь на турниках. Также в свободное от учёбы время я смотрю фильмы и учу ПДД, чтобы сдать на права.</i></p>
+         <p>Мои увлечения</p>
+         <ul style="font-size: 14px; font-family: Times New Roman;text-align: left;">
+            <li>Тренировка на турниках</li>
+            <li>Компьютерные игры</li>
+            <li>Воллейбол</li>
+        </ul>
+        <p class="lol">Мои предпочтения в еде</p>
+        <ul style="font-size: 14px; font-family: Times New Roman;text-align: left;">
+            <li>Мясо по-французски</li>
+            <li>Пицца</li>
+            <li>Булочки</li>
+            <li>Блины</li>
+         </ul>
+         <p style="font-size: 14px; font-family: Times New Roman; text-align: justify; display: flex;">Я не один ребенок в семье, у меня есть старшая сестра.</p>
+        </div>
+    </div>
+
+    <!-- див для аудио-->
+<div style="display: flex; flex-direction: row; justify-content: space-around;">
+    <div style="display: flex; flex-direction: column; align-items: center; font-family: 'Times New Roman';">
+        <h1>Мои любимые треки:</h1>
+        <p><i>DVRST, Игорь Скляр, Atomic Heart - Komarovo</i></p>
+        <audio src="music/1.mp3" controls>Cello Theme</audio>
+        <p> <i>Макс Корж - Горы по колено</i></p>
+        <audio src="music/2.mp3" controls></audio>
+        <p><i>Смысловые Галлюцинации - Вечно молодой</i></p>
+        <audio src="music/3.mp3" controls></audio>
+    </div>
+
+</div>
+
+
+<table class="table" border="1" cellpadding="4" cellspacing="0">
+    <tr>
+      <td rowspan="2">Браузер</td>
+    <th colspan="2">Internet  Explorer</th>
+    <th colspan="3">Opera</th>
+    <th colspan="2">Firefox</th>
+   </tr>
+   <tr>
+    <th>6.0</th><th>7.0</th><th>7.0</th><th>8.0</th><th>9.0</th><th>1.0</th><th>2.0</th>
+   </tr>
+   <tr align="center">
+    <td>Поддерживается</td>
+    <td>Нет</td><td>Да</td><td>Нет</td><td>Да</td><td>Да</td><td>Да</td><td>Да</td>
+    </tr>
+</table>
+    <form class="guruweba_example_form" name="feedback" method="POST" action="/feedback.php">
+  <div class="guruweba_example_caption">Обратная связь</div>
+  <div class="guruweba_example_infofield">Тема обращения</div>
+  <select name="theme" required="required">
+    <option value="">Выберите вариант</option>
+    <option>Вопрос по работе страницы</option>
+    <option>Вопрос о какой-либо песне</option>
+    <option>Пожелания / предложения в улучшении страницы</option>
+  </select>
+  <div>Ваше имя</div>
+  <input type="text" name="name" required="required">
+  <div>Ваш email</div>
+  <input type="email" name="email" required="required">
+  <div>Сообщение</div>
+  <textarea name="message"></textarea>
+  <a href="#" class="knopka">Отправить</a>
+
+
+  <br>
+    <a href = "https://vk.com/xxxtop4eg" class="text" target="_blank">Мой ВК</a><br>
+   
+    <a href="#top" class="text">Наверх</a>
+</form>
+</body>
+</html>
