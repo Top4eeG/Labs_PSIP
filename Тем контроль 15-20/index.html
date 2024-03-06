@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            color: #000000;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<form id="userForm">
+    <input type="text" id="name" name="name" required placeholder="Ваше имя">
+
+    <input type="tel" id="phone" name="phone" pattern="\d{3}-\d{2}-\d{2}" required placeholder="Ваш номер телефона"
+           title="Формат телефона: 123-45-67">
+
+    <label for="comment">Адрес доставки и дополнительная информация</label>
+    <textarea id="comment" name="comment" rows="4" required></textarea>
+
+    <button type="button" onclick="submitForm()">Заказать</button>
+    <button type="button" onclick="clearCookie()">Очистить Cookie</button>
+</form>
+
+<div id="output"></div>
+
+<script>
+    function submitForm() {
+        var name = document.getElementById("name").value;
+        var phone = document.getElementById("phone").value;
+        var comment = document.getElementById("comment").value;
+
+        var phoneRegex = /^\d{3}-\d{2}-\d{2}$/;
+        if (!phoneRegex.test(phone)) {
+            alert("Неправильный формат телефона. Используйте формат: 123-45-67");
+            return;
+        }
+
+        var formData = {
+            "Имя": name,
+            "Телефон": phone,
+            "Адрес доставки и дополнительная информация": comment
+        };
+
+        document.cookie = "formData=" + JSON.stringify(formData);
+        displayFormData(formData);
+    }
+
+    function displayFormData(formData) {
+        var outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = "<h2>Данные из формы:</h2>";
+
+        for (var key in formData) {
+            outputDiv.innerHTML += "<p><strong>" + key + ":</strong> " + formData[key] + "</p>";
+        }
+
+        var cookieData = getCookie("formData");
+        if (cookieData) {
+            var cookieFormData = JSON.parse(cookieData);
+            outputDiv.innerHTML += "<h2>Данные из cookie:</h2>";
+            for (var key in cookieFormData) {
+                outputDiv.innerHTML += "<p><strong>" + key + ":</strong> " + cookieFormData[key] + "</p>";
+            }
+        }
+    }
+
+    function getCookie(name) {
+        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        if (match) {
+            return match[2];
+        }
+        return null;
+    }
+
+    function clearCookie() {
+        document.cookie = "formData=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        displayFormData({});
+    }
+</script>
+
+</body>
+</html>
